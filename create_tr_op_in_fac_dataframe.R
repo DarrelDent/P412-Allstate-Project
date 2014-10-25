@@ -63,5 +63,8 @@ tr.op.in.fac.chron <- merge(tr.op.in.fac.purpt, tr.op.in.fac.spmax,
 # is joined on a variable, the join remains "live" and I will have to
 # keep both variables.
 
-tr.op.in.fac.chron <- tr.op.in.fac.chron[-tr.op.in.fac.chron$shopping_pt.x]
+# Create a second copy of tr.op.in.fac, this one only containing the records
+# that do not represent purchase points, i.e. record_type NE 1.
+
+tr.op.in.fac.nopur <- tr.op.in.fac[tr.op.in.fac$record_type != 1,]
 
